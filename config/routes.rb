@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   resources :employees
   namespace :api do
     namespace :v1,defaults: { format: :json } do
-      resources :admins,:employees,:hr
+      resources :admins , expect: :destroy do
+
+      end
+      resources :employees,:hr
+     get '/delete_all', to: 'admins#index'
     end
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

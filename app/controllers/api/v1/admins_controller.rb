@@ -9,10 +9,11 @@ class Api::V1::AdminsController < Api::V1::ApiController
     end
     def create
         @admin = Admin.new(admin_params)
+        byebug
         if @admin.save
-            render :create
+            render json: {message:"successfully saved", data: @admin}, status: :ok
         else
-            render json: {status:"error",message:"not saved",data:@admin.errors}
+            render json: {message:"not saved", data: @admin.errors}, status: 422
         end   
     end
     def update
@@ -27,11 +28,12 @@ class Api::V1::AdminsController < Api::V1::ApiController
             redirect_to api_v1_admins_path 
         end
     end
+    
     private
     def set_admin
         @admin = Admin.find(params[:id])
     end
     def admin_params
-        params.permit(:name,:phone_no,:email,:age,:address)
+        params.require(:admin).permit(:name,:email,:age,:address, :phone_no)
     end
 end

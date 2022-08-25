@@ -17,8 +17,11 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+
+
 gem 'devise'
 gem 'cancancan'
+gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -53,11 +56,14 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
-group :test do
-  gem 'shoulda-matchers', '~> 5.0'
+group :development, :test do
+    gem 'shoulda-matchers'
 end
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+end
+group :development, :test do
+    gem 'factory_bot_rails', '~> 5.2'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
