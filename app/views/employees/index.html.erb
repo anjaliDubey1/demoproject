@@ -2,16 +2,10 @@
 <table>
     <tr>
         <th>name</th>
-        <!-- <th>phone_no</th>
-        <th>age</th>
-        <th>address</th> -->
     </tr>
-    <% @employee.each do |employee| %>
+    <% @employees.each do |employee| %>
     <tr>
         <td><%=employee.name %></td>
-        <!-- <td><%#=employee.phone_no %></td>
-        <td><%#=employee.age %></td>
-        <td><%#=employee.address %></td> -->
         <td><%=link_to "Profile",employee_path(employee.id) %></td>
         <td><%=link_to "Edit",edit_employee_path(employee.id) %></td>
         <td><%=link_to "Delete",employee_path(employee.id), method: :delete%></td>

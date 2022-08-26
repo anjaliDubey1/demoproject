@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   resources :admins
   resources :hr
   resources :employees
+  get '/download/:id',to: 'admins#download', as: "download"
   namespace :api do
     namespace :v1,defaults: { format: :json } do
       resources :admins , expect: :destroy do
 
       end
       resources :employees,:hr
-     get '/delete_all', to: 'admins#index'
+     get '/delete_all', to: 'admins#index' 
     end
 
   end

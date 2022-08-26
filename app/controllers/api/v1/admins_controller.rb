@@ -11,7 +11,7 @@ class Api::V1::AdminsController < Api::V1::ApiController
         @admin = Admin.new(admin_params)
         byebug
         if @admin.save
-            render json: {message:"successfully saved", data: @admin}, status: :ok
+            render :create
         else
             render json: {message:"not saved", data: @admin.errors}, status: 422
         end   

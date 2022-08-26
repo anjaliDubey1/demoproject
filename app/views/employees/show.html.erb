@@ -6,3 +6,6 @@ phone_no : <%=@employee.phone_no %><br>
 email : <%=@employee.email %><br>
 age : <%=@employee.age %><br>
 address : <%=@employee.address %><br>
+<% @employee.images.each do |image| %>
+<%= image_tag image %>
+<% end %>

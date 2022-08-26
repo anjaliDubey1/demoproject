@@ -35,12 +35,16 @@ class AdminsController < ApplicationController
     @admin.destroy
      redirect_to admins_path
     end  
-  
+   
+    def download
+      @image=Admin.find(params[:id])
+      send_data(@image.image.download)
+    end
    private
     def set_admin
     @admin = Admin.find(params[:id])
     end
     def admin_params
-     params.require(:admin).permit(:name,:phone_no,:email,:age,:address)
+     params.require(:admin).permit(:name,:phone_no,:email,:age,:address,:image)
     end
 end

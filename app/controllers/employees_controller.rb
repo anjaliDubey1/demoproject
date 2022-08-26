@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
     before_action :set_employee, only: [:show, :edit, :update, :destroy]
     load_and_authorize_resource
     def index
-      @employee =Employee.all
+      @employees =Employee.all
     end
     def show
     end
@@ -36,6 +36,6 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
     end
     def employee_params
-      params.require(:employee).permit(:name,:phone_no,:email,:age,:address)
+      params.require(:employee).permit(:name,:phone_no,:email,:age,:address, images: [])
     end
 end

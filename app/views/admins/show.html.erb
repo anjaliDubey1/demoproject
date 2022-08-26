@@ -6,3 +6,6 @@ phone_no : <%=@admin.phone_no %><br>
 email : <%=@admin.email %><br>
 age : <%=@admin.age %><br>
 address : <%=@admin.address %><br>
+<%if @admin.image.attached?%>
+<%= image_tag(@admin.image) %>
+<%end%>
