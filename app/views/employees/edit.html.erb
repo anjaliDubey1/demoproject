@@ -1,25 +1,30 @@
 <%= form_with model:@employee,url:employee_path , method: :patch do |f| %>
- <div class="field">
+ <div>
     <%= f.label :name %><br />
     <%= f.text_field :name%>
   </div> 
-  <div class="field">
+  <div>
       <%= f.label :phone_no %><br />
       <%= f.text_field :phone_no%>
     </div>
-    <div class="field">
+    <div>
       <%= f.label :email %> <br>
       <%= f.email_field :email %>
     </div> 
  
-  <div class="field">
+  <div>
     <%= f.label :age %><br />
     <%= f.text_field :age%>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :address %><br />
     <%= f.text_field :address %>
+  </div> 
+
+  <div>
+    <%= f.label :images %><br />
+    <%= f.file_field :images,multiple: true %>
   </div> 
   <div>
     <%= f.submit  %>
