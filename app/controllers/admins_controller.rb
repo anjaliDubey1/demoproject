@@ -21,7 +21,7 @@ class AdminsController < ApplicationController
             render :new
           end
         else
-          redirect_to admins_path, notice: "admin already exist"
+          redirect_to admins_path, notice: "admin already exists"
         end
     end
   
