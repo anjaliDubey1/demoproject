@@ -40,3 +40,4 @@ class HrController < ApplicationController
       params.require(:hr).permit(:name,:email,:phone_no,:age,:address)
     end
 end
+#https://demoproject1-app.herokuapp.com/users/sign_in

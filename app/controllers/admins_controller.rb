@@ -13,12 +13,16 @@ class AdminsController < ApplicationController
     end
   
     def create
-      @admin = Admin.new(admin_params)
-      if @admin.save
-       redirect_to admins_path
-      else
-       render :new
-      end
+        if Admin.count!=1
+          @admin = Admin.new(admin_params)
+          if @admin.save
+            redirect_to admins_path
+          else
+            render :new
+          end
+        else
+          redirect_to admins_path, notice: "admin already exist"
+        end
     end
   
     def edit
@@ -36,10 +40,10 @@ class AdminsController < ApplicationController
      redirect_to admins_path
     end  
    
-    def download
-      @image=Admin.find(params[:id])
-      send_data(@image.image.download)
-    end
+    # def download
+    #   @image=Admin.find(params[:id])
+    #   send_data(@image.image.download)
+    # end
    private
     def set_admin
     @admin = Admin.find(params[:id])
@@ -47,4 +51,5 @@ class AdminsController < ApplicationController
     def admin_params
      params.require(:admin).permit(:name,:phone_no,:email,:age,:address,:image)
     end
+    
 end

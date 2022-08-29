@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-    before_action :set_employee, only: [:show, :edit, :update, :destroy]
+    before_action :set_employee, only: [:show, :edit,:update,:destroy]
     load_and_authorize_resource
     def index
       @employees =Employee.all
@@ -18,8 +18,13 @@ class EmployeesController < ApplicationController
         render :new
       end
     end
+
+
+
     def edit
     end
+    
+    
     def update
       if @employee.update(employee_params)
         redirect_to  employees_path
@@ -27,6 +32,7 @@ class EmployeesController < ApplicationController
         render :edit
       end
     end
+
     def destroy
       @employee.destroy
       redirect_to employees_path

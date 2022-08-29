@@ -7,5 +7,6 @@ email : <%=@admin.email %><br>
 age : <%=@admin.age %><br>
 address : <%=@admin.address %><br>
 <%if @admin.image.attached?%>
-<%= image_tag(@admin.image) %>
-<%end%>
+<%= image_tag(@admin.image,width: "200px" ,height: "200px") %>
+<%end%><br>
+<%= link_to "back",admins_path %>

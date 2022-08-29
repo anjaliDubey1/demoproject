@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'cancancan'
 gem 'rack-cors'
+#gem "image_processing", ">= 1.2"
+
+#gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
