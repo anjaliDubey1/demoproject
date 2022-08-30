@@ -40,9 +40,10 @@
     <%= f.label :address %><br/>
     <%= f.text_field :address %>
   </div>
+  <div>
     <%=f.label :role %>
     <%= f.select :role, ["admin", "hr", "employee"] %>
-
+  </div>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

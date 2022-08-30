@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
     end
     def create
       @admin =Admin.first
-      @employee = @admin.Employees.new(employee_params)
+      @employee = @admin.employees.new(employee_params)
       if @employee.save
         redirect_to employees_path
       else

@@ -1,24 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe Employee, type: :model do
-  subject {Employee.new(name:"Riya Namdev", phone_no: 1234567891, age: 20, address:"423,kalani nagar indore")}
+  # subject {Employee.new(name:"Riya Namdev", phone_no: 1234567891, age: 20, address:"423,kalani nagar indore")}
 
-  before {subject.save}
+  # before {subject.save}
 
-  it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  # it 'is not valid without a name' do
+  #   subject.name = nil
+  #   expect(subject).to_not be_valid
+  # end
+  # it 'is not valid without a age' do
+  #   subject.age = nil
+  #   expect(subject).to_not be_valid
+  # end
+  # it 'is not valid without a phone_no' do
+  #   subject.phone_no = nil
+  #   expect(subject).to_not be_valid
+  # end
+  # it 'is not valid without a address' do
+  #   subject.address = nil
+  #   expect(subject).to_not be_valid
+  #end
+  it 'is not valid without a address' do
+    should validate_presence_of(:address)
   end
-  it 'age should be present' do
-    subject.age = nil
-    expect(subject).to_not be_valid
+  it 'is not valid without a name' do
+    should validate_presence_of(:name)
   end
-  it 'phone_no should be present' do
-    subject.phone_no = nil
-    expect(subject).to_not be_valid
+  it 'is not valid without a age' do
+    should validate_presence_of(:age)
   end
-  it 'address should be present' do
-    subject.address = nil
-    expect(subject).to_not be_valid
+  it 'is not valid without a phone_no' do
+    should validate_presence_of(:phone_no)
+  end
+  describe "Associations" do
+    it { should belong_to(:admin) }
   end
 end
+
+

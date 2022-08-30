@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
     before_action :set_admin, only: [:show, :edit, :update, :destroy]
+    before_action :count_admin, only: [:create]
     load_and_authorize_resource
     def index
     @admin =Admin.all
@@ -13,16 +14,12 @@ class AdminsController < ApplicationController
     end
   
     def create
-        if Admin.count!=1
-          @admin = Admin.new(admin_params)
-          if @admin.save
-            redirect_to admins_path
-          else
-            render :new
-          end
-        else
-          redirect_to admins_path, notice: "admin already exists"
-        end
+      @admin = Admin.new(admin_params)
+      if @admin.save
+        redirect_to admins_path
+      else
+        render :new
+      end
     end
   
     def edit
@@ -47,6 +44,11 @@ class AdminsController < ApplicationController
    private
     def set_admin
     @admin = Admin.find(params[:id])
+    end
+    def count_admin
+      unless Admin.count!=1
+        redirect_to admins_path, notice: "admin already exists"
+      end
     end
     def admin_params
      params.require(:admin).permit(:name,:phone_no,:email,:age,:address,:image)

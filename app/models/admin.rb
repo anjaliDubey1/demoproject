@@ -1,6 +1,6 @@
 class Admin < ApplicationRecord
     has_many :hrs 
-    has_many :Employees
+    has_many :employees
     has_one_attached :image
     
     validates :name,presence: true
